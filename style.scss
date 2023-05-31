@@ -149,7 +149,7 @@
                 // Paddings
                 $first-column-cell-padding: math.div(1,2)+em,
                 $first-row-column-padding: math.div(4,10)+em,
-                $column-cell-padding: math.div(3,10)+em,
+                $column-cell-padding: 0 math.div(3,10)+em,
                 /*
                 $column-cell-padding: math.div(1,2)+em,
                 $first-row-column-padding: 0 0 0.75em 0,
@@ -157,7 +157,7 @@
                 $first-row-column-image-margin: 0 0 0.8em 0,
                 */
                 // Width
-                $first-column-width: 70px,
+                $first-column-width: 60px,
             );
         }
 
