@@ -1,11 +1,169 @@
-.custom-table-styles {
-    .lineup-compare__category-text {
-        display: inline-block;
-        padding: 16px 24px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #363636;
-        vertical-align: top;
-        word-break: break-word;
+// Sticky header: https://stackoverflow.com/questions/23989463/how-to-set-tbody-height-with-overflow-scroll
+@use "sass:math";
+//.tablepress {
+    // &
+    .custom-table-theme-__table-wrapper {
+        // Common settings
+        $font-family: inherit;        
+        $breakpoint-tablet: 984px;
+        $breakpoint-mobile: 500px;
+
+        table-layout: fixed;
+        /*
+        border-collapse: collapse;
+        width: 100%;
+        font-family: inherit;
+        overflow-x: auto;
+        white-space: nowrap;
+        */
+
+        @mixin styling(
+            // Font sizes
+            $font-size-base: 14px,
+            $column-font-size: 1em,
+            $first-column-font-size: 1em,
+            $first-row-column-label-font-size: 1em,
+            // Font weights
+            $column-font-weight: 300,
+            $first-column-font-weight: 700,
+            $first-row-column-label-font-weight: 700,
+            // Paddings
+            $column-cell-padding: 1em 0.8em,
+            $first-column-cell-padding: 1em 1.5em,
+            $first-row-column-padding: 0 0 1em 0,
+            //
+            $column-cell-min-width: 600px,
+            $first-column-width: 200px,
+            $column-font-color: #363636,
+            $column-bg-color: #ffffff,
+            $column-border-color: #bcbcbc,
+            $fist-column-font-color: #363636,
+            $fist-column-bg-color: #ececec,
+            $first-column-border-color: #bcbcbc,
+            $first-row-background: #ffffff,
+            $first-row-column-image-margin: 0 0 1em 0,
+            $first-row-column-label-margin: 0,
+        ) {
+            // First column in every 
+            tbody {
+                font-family: inherit;
+                position: relative;
+                font-size: $font-size-base;
+
+                tr {
+                    font-family: inherit;
+                    td {
+                        // Cell
+                        font-family: inherit;
+                        padding: $column-cell-padding;
+                        font-size: $column-font-size;
+                        font-weight: $column-font-weight;
+                        color: $column-font-color;
+                        vertical-align: top;
+                        white-space: normal;
+                        word-break: break-word;
+                        text-align: left;
+                        background: $column-bg-color;
+                        border-color: $column-border-color;
+                        &.column-1 {
+                            // Первый столбец в каждой строек
+                            padding: $first-column-cell-padding;
+                            width: $first-column-width;
+                            min-width: $first-column-width;
+                            font-size: $first-column-font-size;
+                            font-weight: $first-column-font-weight;
+                            color: $fist-column-font-color;
+                            vertical-align: top;
+                            word-break: break-word;
+                            background-color: $fist-column-bg-color;
+                            border-color: $first-column-border-color;
+                        }
+                    }
+
+                    td+td {
+                        width: auto;
+                        min-width: $column-cell-min-width;
+                    }
+
+                    &:first-child {
+                        background: $first-row-background;
+                        td {
+                            height: 1px;
+                            position: relative;
+                            padding: $first-row-column-padding;
+                            background: $first-row-background;
+                            .content {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: flex-end;
+                                align-items: center;
+                                width: 100%;
+                                height: 100%;
+                                overflow: hidden;
+
+                                .image {
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                    padding: 0;
+                                    margin: $first-row-column-image-margin;
+                                }
+                                .label {
+                                    margin: $first-row-column-label-margin;
+                                    font-size: $first-row-column-label-font-size;
+                                    font-weight: $first-row-column-label-font-weight;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $breakpoint-tablet) {
+            @include styling(
+                $font-size-base: 12px,
+                // Font sizes
+                $first-row-column-label-font-size: math.div(8, 10)+em,
+                $column-font-size: math.div(12, 10)+em,
+                // Paddings
+                $first-column-cell-padding: math.div(1,2)+em,
+                $first-row-column-padding: math.div(4,10)+em,
+                
+                /*
+                $column-cell-padding: math.div(1,2)+em,
+                $first-row-column-padding: 0 0 0.75em 0,
+                // Margin
+                $first-row-column-image-margin: 0 0 0.8em 0,
+                */
+                // Width
+                $first-column-width: 170px,
+            );
+        }
+
+        @media screen and (max-width: $breakpoint-mobile) {
+            @include styling(
+                $font-size-base: 8px,
+                // Font sizes
+                $first-row-column-label-font-size: math.div(8, 10)+em,
+                $column-font-size: math.div(12, 10)+em,
+                // Paddings
+                $first-column-cell-padding: math.div(1,2)+em,
+                $first-row-column-padding: math.div(4,10)+em,
+                
+                /*
+                $column-cell-padding: math.div(1,2)+em,
+                $first-row-column-padding: 0 0 0.75em 0,
+                // Margin
+                $first-row-column-image-margin: 0 0 0.8em 0,
+                */
+                // Width
+                $first-column-width: 100px,
+            );
+        }
+
+        @media screen and (min-width: $breakpoint-tablet) {
+            @include styling();
+        }
     }
-}
+//}

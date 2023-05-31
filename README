@@ -2,4 +2,7 @@
 SASS: https://sass-lang.com/install
 
 Компиляция стилей запускается командой: (необходимо установленный SASS)
-$ sass styles.scss style.css
+$ sass style.scss style.css
+
+Для разработки и генерации изменений:
+$ sass --watch style.scss:style.css --style compressed
