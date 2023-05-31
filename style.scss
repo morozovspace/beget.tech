@@ -8,13 +8,6 @@
         $breakpoint-mobile: 500px;
 
         table-layout: fixed;
-        /*
-        border-collapse: collapse;
-        width: 100%;
-        font-family: inherit;
-        overflow-x: auto;
-        white-space: nowrap;
-        */
 
         @mixin styling(
             // Font sizes
@@ -128,13 +121,6 @@
                 // Paddings
                 $first-column-cell-padding: math.div(1,2)+em,
                 $first-row-column-padding: math.div(4,10)+em,
-                
-                /*
-                $column-cell-padding: math.div(1,2)+em,
-                $first-row-column-padding: 0 0 0.75em 0,
-                // Margin
-                $first-row-column-image-margin: 0 0 0.8em 0,
-                */
                 // Width
                 $first-column-width: 170px,
             );
@@ -150,12 +136,6 @@
                 $first-column-cell-padding: math.div(1,2)+em,
                 $first-row-column-padding: math.div(4,10)+em,
                 $column-cell-padding: 0 math.div(3,10)+em,
-                /*
-                $column-cell-padding: math.div(1,2)+em,
-                $first-row-column-padding: 0 0 0.75em 0,
-                // Margin
-                $first-row-column-image-margin: 0 0 0.8em 0,
-                */
                 // Width
                 $first-column-width: 60px,
             );
