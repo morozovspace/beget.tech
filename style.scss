@@ -1,8 +1,7 @@
 // Sticky header: https://stackoverflow.com/questions/23989463/how-to-set-tbody-height-with-overflow-scroll
 @use "sass:math";
-//.tablepress {
-    // &
-    .custom-table-theme-__table-wrapper {
+.tablepress {
+    &.custom-table-theme-__table-wrapper {
         // Common settings
         $font-family: inherit;        
         $breakpoint-tablet: 984px;
@@ -166,4 +165,4 @@
             @include styling();
         }
     }
-//}
+}
